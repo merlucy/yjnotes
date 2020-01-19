@@ -59,18 +59,23 @@ then
 #If $action is 3, then the diary deletes an already existing entry.
 elif [ $action = "3" ]
 then
+	#Shows the list of current entries
 	echo "Following is the files currently registered"
 	ls -Ut | egrep "^[0-9]{4}" 	
 	
+	#Asks for user input
 	echo "Please choose the file that you want to DELETE."
 	read fileSelection
 	
+	#Stores the result of the file search into variable fileCheck
 	fileCheck=$(ls -tU | grep $fileSelection | head -n 1)
 
 	if [ ! -z $fileCheck ]
 	then
 		echo "We have found the following file:"
 		echo $fileCheck
+	
+		#Asks if the user would like to delete the file.
 		echo -e "\nIf you want to delete the file type yes"
 		read yon
 		
@@ -83,6 +88,7 @@ then
 			echo "You chose not to delete the file"
 		fi
 	else
+		#If the file the user entered could not be found, terminate the program
 		echo "We could not find the file you were requesting"
 	fi
 
