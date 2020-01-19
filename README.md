@@ -1,2 +1,4 @@
 # ChamberNotes
-A diary bash script for daily record entries.
+A diary made using bash scripts.
+
+First created on January 17th
